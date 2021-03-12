@@ -21,12 +21,12 @@ function mySub(text,n1,n2) {
 }
 
 
-function ownApply(n,func1wsaf,value) {
+function ownApply(n,func,value) {
   if (n === 0) {
     return value;
   }
   value = func(value);
-  return ownApply(n-1, func1wsaf,value);
+  return ownApply(n-1, func,value);
 }
 
 const func  = value => Math.sqrt(value);
