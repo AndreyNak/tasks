@@ -1,39 +1,40 @@
-function isPalindrome(value) {
-  alert(checkPalindrome(value));
-}
-
-function checkPalindrome(str){
+function isPalindrome(str){
+  if (str === " ")
+    return false;
+  str = str.toLowerCase();
   if(str.length === 1)
     return true;
   if(str.length === 2) 
     return str[0] === str[1];
   if(str[0] === str.slice(-1)) 
-    return checkPalindrome(str.slice(1,-1))
+    return isPalindrome(str.slice(1,-1))
   return false;
 }
 
 
-function mySub(text,n1,n2) {
-  if (n1 > 0) {
-    n2++;
+function substr(text,num = 0,len = text.length) {
+  let result = '';
+  if (num > text.length-1){
+    return result;
   }
-  alert(text.slice(n1,n2));
-}
+  text = text.slice(num,text.length);
+  for (let index = 0 ; index < len; index++){
+    if (text[index] === undefined){
+      continue;
+    }
+    result+=text[index];
+   
+  }
+  if (result === '')
+    return '';
+   return result;
+ }
 
 
-function ownApply(n,func,value) {
+function ownApply(n,func1wsaf,value) {
   if (n === 0) {
     return value;
   }
   value = func(value);
-  return ownApply(n-1, func,value);
+  return ownApply(n-1, func1wsaf,value);
 }
-
-const func  = value => Math.sqrt(value);
-//const func = v => v + 10;
-//const func = v => v ** 2;
-
- console.log(ownApply(3,func, 256));
- 
-
-
